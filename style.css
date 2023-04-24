@@ -2,6 +2,9 @@ body {
     font-family: 'DM Mono', monospace;
 }
 
---primary {
-    color: #efff0f;
+i:hover {
+    color:#0DCAF0;
+    padding-bottom: 4px;
+    transition: 300ms;
+    cursor: pointer;
 }
