@@ -10,6 +10,9 @@ html,body {
     --light-switch-text: "lights off!";
     --light-text: #222430;
     --light-bg: #f7f7f7;
+    --light-card-border: rgba(0, 0, 0, 0.175);
+    --light-card-header-bg: #e7e7e7;
+    --light-card-body-bg: #f3f3f3;
     --light-theme: #d34a97;
 
     /* Dark mode */
@@ -18,6 +21,9 @@ html,body {
     --dark-switch-text: "lights on!";
     --dark-text: #f7f7f7;
     --dark-bg: #222430;
+    --dark-card-border: rgba(0, 0, 0, 0.92);;
+    --dark-card-header-bg: #171720 ;
+    --dark-card-body-bg: #1a1a2c;
     --dark-theme: #bd93f9;
 
     /* Default mode */
@@ -27,6 +33,10 @@ html,body {
     --text-color: var(--light-text);
     --bg-color: var(--light-bg);
     --theme-color: var(--light-theme);
+    --card-border: var(--light-card-border);
+    --card-header-bg: var(--light-card-header-bg);
+    --card-body-bg: var(--light-card-body-bg);
+
 }
 
 /* Switched mode */
@@ -37,6 +47,9 @@ html,body {
     --text-color: var(--dark-text);
     --bg-color: var(--dark-bg);
     --theme-color: var(--dark-theme);
+    --card-border: var(--dark-card-border);
+    --card-header-bg: var(--dark-card-header-bg);
+    --card-body-bg: var(--dark-card-body-bg);
 }
 
 /* Theme switcher */
@@ -73,15 +86,34 @@ html,body {
     min-height: 100%;
 }
 
-a {
-    color: var(--theme-color);
+.card {
+    border-color: var(--card-border) !important;
+}
+.card-header, .card-footer{
+    border-color: var(--card-border) !important;
+    background-color: var(--card-header-bg) !important;
 }
 
+.card-body {
+    background-color: var(--card-body-bg) !important;
+}
 
-/* Acá termina el switcher */
+.card-header,
+.card-body {
+    color: var(--text-color);
+}
+
+.card-body-text {
+    font-size: 0.9rem;
+}
+
+.card-footer a {
+    color: var(--theme-color);
+    font-weight: 500;
+}
 
 i:hover {
-    color:#0DCAF0;
+    color:var(--dark-theme);
     padding-bottom: 4px;
     transition: 300ms;
     cursor: pointer;
@@ -90,8 +122,4 @@ i:hover {
 img {
     box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.45);
     transition: 300ms;
-}
-
-.card-footer a {
-    font-weight: 500;
 }
