@@ -56,7 +56,7 @@ html,body {
 
 .switch-label::after {
     content: var(--switch-icon);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     transition: text-shadow .2s;
 }
 
