@@ -1,10 +1,106 @@
-body {
+html,body {
     font-family: 'DM Mono', monospace;
+    height: 100%;
 }
+
+:root {
+    /* Light mode */
+    --light-switch-shadow: #222430;
+    --light-switch-icon: "⚫";
+    --light-switch-text: "lights off!";
+    --light-text: #222430;
+    --light-bg: #f7f7f7;
+    --light-theme: #d34a97;
+
+    /* Dark mode */
+    --dark-switch-shadow: #f7f7f7;
+    --dark-switch-icon: "⚪";
+    --dark-switch-text: "lights on!";
+    --dark-text: #f7f7f7;
+    --dark-bg: #222430;
+    --dark-theme: #bd93f9;
+
+    /* Default mode */
+    --switch-shadow-color: var(--light-switch-shadow);
+    --switch-icon: var(--light-switch-icon);
+    --switch-text: var(--light-switch-text);
+    --text-color: var(--light-text);
+    --bg-color: var(--light-bg);
+    --theme-color: var(--light-theme);
+}
+
+/* Switched mode */
+.theme-switch:checked~#page {
+    --switch-shadow-color: var(--dark-switch-shadow);
+    --switch-icon: var(--dark-switch-icon);
+    --switch-text: var(--dark-switch-text);
+    --text-color: var(--dark-text);
+    --bg-color: var(--dark-bg);
+    --theme-color: var(--dark-theme);
+}
+
+/* Theme switcher */
+.theme-switch {
+    /* Hides the checkbox */
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.switch-label {
+    cursor: pointer;
+    display: flex;
+}
+
+.switch-label::before {
+    align-self: center;
+    content: var(--switch-text);
+    color: var(--switch-shadow-color);
+    font-size: 1rem;
+    padding-right: 10px;
+    transition: opacity .2s;
+}
+
+.switch-label::after {
+    content: var(--switch-icon);
+    font-size: 1rem;
+    transition: text-shadow .2s;
+}
+
+
+/* Styling */
+
+#page, .navbar {
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: color .2s, background-color .2s;
+}
+
+#page {
+    min-height: 100%;
+}
+
+a {
+    color: var(--theme-color);
+}
+
+
+/* Acá termina el switcher */
 
 i:hover {
     color:#0DCAF0;
     padding-bottom: 4px;
     transition: 300ms;
     cursor: pointer;
+}
+
+img {
+    box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.45);
+    transition: 300ms;
+}
+
+.card-footer a {
+    font-weight: 500;
 }
